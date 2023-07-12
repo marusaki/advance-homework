@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getting started with VueJS</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="./vue/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>My Todo</h1>
+    </header>
+    <section id="content">
+      <p>Name<input type="text" v-model="todoName" placeholder="Todo Name"></p>
+      <p>Description<input type="text" v-model="todoDescription" placeholder="Todo Description"></p>
+      <p><button @click="addTodo">Add Todo</button></p>
+      <h3 v-show="todos.length === 0">No Todo</h3>
+      <ul>
+        <li class="todo-item" v-for="(todos, index) in todos" :key="index" @click="removeTodo(index)">
+          {{ todos.tname }}<br>{{ todos.tdescription }}
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
